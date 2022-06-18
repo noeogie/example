@@ -12,8 +12,7 @@ public class ConsoleExample {
 
     public void start() {
         try (Scanner in = new Scanner(System.in);
-                FileWriter fileWriter = new FileWriter("test/report.txt", true);
-                PrintWriter out = new PrintWriter(fileWriter, true)) {
+                PrintWriter out = new PrintWriter(new FileWriter("result/result_console.txt", true), true)) {
             String line;
             while ((line = in.nextLine()) != null) {
                 out.println("reply = " + line);

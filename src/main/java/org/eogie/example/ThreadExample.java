@@ -29,8 +29,8 @@ public class ThreadExample {
             throw new RuntimeException(e);
         }
 
-        System.out.println(System.currentTimeMillis() - start);
         System.out.println(task1.num + task2.num + task3.num);
+        System.out.println("total time = " + (System.currentTimeMillis() - start));
     }
 
     static class Task implements Runnable {
