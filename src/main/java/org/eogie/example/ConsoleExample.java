@@ -14,7 +14,7 @@ public class ConsoleExample {
         try (Scanner in = new Scanner(System.in);
                 PrintWriter out = new PrintWriter(new FileWriter("result/result_console.txt", true), true)) {
             String line;
-            while ((line = in.nextLine()) != null) {
+            while (!(line = in.nextLine()).isEmpty()) {
                 out.println("reply = " + line);
             }
         }
