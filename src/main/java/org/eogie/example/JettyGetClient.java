@@ -10,10 +10,10 @@ import org.eclipse.jetty.http.HttpMethod;
 
 import java.util.List;
 
-public class JettyClient {
+public class JettyGetClient {
 
     public static void main(String[] args) {
-        new JettyClient().start();
+        new JettyGetClient().start();
     }
 
     public void start() {
