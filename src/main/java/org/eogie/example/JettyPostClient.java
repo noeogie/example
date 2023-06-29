@@ -7,7 +7,8 @@ import com.google.gson.JsonParser;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.api.ContentResponse;
 import org.eclipse.jetty.client.api.Request;
-import org.eclipse.jetty.client.util.StringRequestContent;
+import org.eclipse.jetty.client.util.StringContentProvider;
+import org.eclipse.jetty.http.HttpHeader;
 import org.eclipse.jetty.http.HttpMethod;
 
 public class JettyPostClient {
@@ -27,10 +28,10 @@ public class JettyPostClient {
             body.addProperty("data2", 1234);
             body.addProperty("data3", 1234);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            Request.Content content = new StringRequestContent("application/json", gson.toJson(body));
 
             Request request = httpClient.newRequest("http://127.0.0.1:8080/example").method(HttpMethod.POST);
-            request.body(content);
+            request.header(HttpHeader.CONTENT_TYPE, "application/json");
+            request.content(new StringContentProvider(gson.toJson(body)));
 
             ContentResponse response = request.send();
 
